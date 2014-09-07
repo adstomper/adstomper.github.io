@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>Adblock Edge</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="Header">
+      <h1 style="text-align: center;"><span style="color: #000099;"><a href="index.html"
+            id="Title_Font">Adblock Edge</a></span></h1>
+      <p style="text-align: center; margin-top: -28px;"><span style="font-weight: bold;">ABE
+          Blocks Everything</span></p>
+      <div class="Navigation">
+        <ul style="margin-left: -172px; width: 1110px;" id="Fonts">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Faqs.html">FAQ's</a></li>
+          <li><a href="Differences.html">ABE vs ABP</a></li>
+          <li><a href="Documentation.html">Documentation</a></li>
+          <li><a href="Known_subs.html">Subscriptions</a></li>
+          <li><a href="Contacting.html">Contact Info</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end div#Header -->
+    <div id="Page">
+      <div id="Content" style="margin-left: -18px; width: 783px; text-align: left;"><a
+          href="Writing_filters.html">Writing Filters</a> 
+        <div class="firefox ua-firefox" id="content">
+          <div dir="ltr" class="viewcontent cc-page">
+            <div class="toc">
+              <ul>
+                <li><a href="Writing%20Adblock%20Edge%20filters.htm#introduction">Introduction
+                    to Adblock Edge filters</a></li>
+                <li>
+                  <ul>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#basic">Basic
+                        filter rules</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#whitelist">Defining
+                        exception rules</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#anchors">Matching
+                        at beginning/end of an address</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#separators">Marking
+                        separator characters</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#comments">Comments</a></li>
+                    <li>
+                      <ul>
+                        <li><a href="Writing%20Adblock%20Edge%20filters.htm#special-comments">Special
+                            comments</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#advanced">Advanced
+                        features</a></li>
+                    <li>
+                      <ul>
+                        <li><a href="Writing%20Adblock%20Edge%20filters.htm#options">Specifying
+                            filter options</a></li>
+                        <li><a href="Writing%20Adblock%20Edge%20filters.htm#regexps">Using
+                            regular expressions</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide">Element
+                    hiding</a></li>
+                <li>
+                  <ul>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_basic">Basic
+                        rules</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_domains">Limiting
+                        rules to certain domains</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_attributes">Attribute
+                        selectors</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_css">Advanced
+                        selectors</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_exceptions">Exception
+                        rules</a></li>
+                    <li><a href="Writing%20Adblock%20Edge%20filters.htm#elemhide_simplified">Simplified
+                        element hiding syntax</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <p>Current Adblock Edge versions allow you to "tweak" your filters
+              in many different ways. This document explains the choices that
+              you have and how they can be used.</p>
+            <p><em>Disclaimer</em>: All filter examples given here are really
+              only examples and are not meant to be used.</p>
+            <h2 id="introduction">Introduction to Adblock Edge filters</h2>
+            <p>The options described in this section should be enough for users
+              who have to create a filter occasionally.</p>
+            <h3 id="basic">Basic filter rules</h3>
+            <p>The most trivial filter you can define is of course the address
+              of banner you want to block. However, often this address changes
+              every time you open a page. For example it could be <code>http://example.com/ads/banner123.gif</code>
+              where 123 is a random number. Here blocking the complete address
+              won't help you, you need a more general filter &#8212; like <code>http://example.com/ads/banner*.gif</code>.
+              Or maybe even <code>http://example.com/ads/*</code>.</p>
+            <p><em>Note</em>: Make sure that you are not replacing too much by
+              wildcards. The filter <code>http://example.com/*</code> will
+              definitely block all banners but it will also block everything
+              else from example.com that you still might want to see.</p>
+            <h3 id="whitelist">Defining exception rules</h3>
+            <p>Sometimes you will notice that one of your filters that is
+              usually working quite well blocks in some case blocks something
+              that it shouldn't be blocking. You don't want to remove this
+              filter but you still don't want it to match in this one case.</p>
+            <p>That's what exception rules are good for &#8212; they allow you to
+              define cases where filters shouldn't be applied. For example if
+              you are unhappy with your filter <code>adv</code> blocking <code>http://example.com/advice.html</code>,
+              you can define an exception rule <code>@@advice</code>. Exception
+              rules are no different from filter rules, you can use wildcards or
+              regular expressions. You only have to precede them by <code>@@</code>
+              to indicate an exception rule.</p>
+            <p>Exception rules can do more. If an exception rule starts with
+              http:// or https:// (optionally with a pipe before it) it will
+              make whole pages an exception. For example, if your exception rule
+              is <code>@@|http://example.com</code> and you open some page from
+              example.com &#8212; Adblock Edge will be entirely disabled on this page
+              and nothing will be blocked.</p>
+            <h3 id="anchors">Matching at beginning/end of an address</h3>
+            <p>Usually Adblock Edge treats every filter as if it had a wildcard
+              at its beginning and end, e.g. there is not difference between the
+              filters <code>ad</code> and <code>*ad*</code>. While this is
+              usually unproblematic, sometimes you wish that the filter you
+              defined only matches at the beginning or end of an address. For
+              example you might want to block all Flash, but if you add the
+              filter <code>swf</code> the address <code>http://example.com/swf/index.html</code>
+              will also be blocked.</p>
+            <p>Solution to this problem: add a pipe symbol to the filter to show
+              that there should be definitely the end of the address at this
+              point. For example the filter <code>swf|</code> will block <code>http://example.com/annoyingflash.swf</code>
+              but not <code>http://example.com/swf/index.html</code>. And the
+              filter <code>|http://baddomain.example/</code> will block <code>http://baddomain.example/banner.gif</code>
+              but not <code>http://gooddomain.example/analyze?http://baddomain.example</code>.</p>
+            <p id="flexible-anchors">Sometimes one wants to block <code>http://example.com/banner.gif</code>
+              as well as <code>https://example.com/banner.gif</code> and <code>http://www.example.com/banner.gif</code>.
+              This can be achieved by putting two pipe symbols in front of the
+              filter which makes sure the filter matches at the beginning of the
+              domain name: <code>||example.com/banner.gif</code> will block all
+              these addresses while not blocking <code>http://badexample.com/banner.gif</code>
+              or <code>http://gooddomain.example/analyze?http://example.com/banner.gif</code>
+              .</p>
+            <h3 id="separators">Marking separator characters</h3>
+            <p>Often you need to accept any separator character in a filter. For
+              example, you might write a filter that blocks <code>http://example.com/</code>
+              and <code>http://example.com:8000/</code> but not <code>http://example.com.ar/</code>.
+              Here the symbol ^ can be used as a placeholder for a single
+              separator character: <code>http://example.com^</code> .</p>
+            <p>Separator character is anything but a letter, a digit, or one of
+              the following: _ - . %. The end of the address is also accepted as
+              separator. In the following example all separator characters are
+              shown in red: http:<b style="color: red;">//</b>example.com<b style="color: red;">:</b>8000<b
+                style="color: red;">/</b>foo.bar<b style="color: red;">?</b>a<b
+                style="color: red;">=</b>12<b style="color: red;">&amp;</b>b<b style="color: red;">=</b>%D1%82%D0%B5%D1%81%D1%82.
+              So this address can be blocked with the filter <code>^example.com^</code>
+              or <code>^%D1%82%D0%B5%D1%81%D1%82^</code> or <code>^foo.bar^</code>.</p>
+            <h3 id="comments">Comments</h3>
+            <p>Any rule that starts with an exclamation mark is considered a
+              comment. It will still show up in the filter list but in grey
+              instead of black. Adblock Edge will ignore this rule for actual
+              blocking so it is safe to write there whatever you want. You can
+              place a comment rule above a real filter to describe what it is
+              doing. Or you can put a comment on top of your filter list stating
+              your authorship (most filter list authors do that).</p>
+            <h4 id="special-comments">Special comments</h4>
+            <p> Special comments will only have an effect in downloaded filter
+              lists, not in custom filters. They can set a number of parameters
+              for the filter list: </p>
+            <ul>
+              <li>
+                <p> <code>! Homepage: http://example.com/</code> </p>
+                <p> This comment determines which webpage should be linked as
+                  filter list homepage. </p>
+              </li>
+              <li>
+                <p> <code>! Title: FooList</code> </p>
+                <p> This comment sets a fixed title for the filter list. If this
+                  comment is present the user will no longer be able to change
+                  the title. </p>
+              </li>
+              <li>
+                <p> <code>! Expires: 5 days</code> </p>
+                <p> This comment sets the update interval for the filter list,
+                  the value can be given in days (e.g. <code>5 days</code>) or
+                  hours (e.g. <code>8 hours</code>). Any value between 1 hour
+                  and 14 days is possible. Note that the update will not
+                  necessarily happen after this time interval. The actual update
+                  time is slightly randomized and depends on some additional
+                  factors to reduce server load. </p>
+              </li>
+              <li>
+                <p> <code>! Checksum: OaopkIiiAl77sSHk/VAWDA</code> </p>
+                <p> This comment makes sure that accidental corruption of the
+                  data won't result in broken filters. For example, some
+                  firewall software might modify the filter <code>*/adnetwork/*</code>
+                  on download in an attempt to protect the user against ads. It
+                  will remove part of the filter so that Adblock Edge will only
+                  see the filter <code>**</code>. A checksum comment in the
+                  filter list protects against this scenario, any modifications
+                  will have the result that the checksum no longer matches and
+                  Adblock Edge will ignore the data. </p>
+                <p> To calculate the checksum the following steps need to be
+                  performed: </p>
+                <ul>
+                  <li>Remove the existing checksum comment if any.</li>
+                  <li>Encode filter list text using UTF-8 encoding.</li>
+                  <li>Convert all line breaks to Unix style (replace <code>\r</code>
+                    by <code>\n</code> if present).</li>
+                  <li>Remove empty lines (replace sequences of the <code>\n</code>
+                    character by a single <code>\n</code> character).</li>
+                  <li>Calculate the base64-encoded MD5 checksum of the text,
+                    remove trailing <code>=</code> characters if any.</li>
+                </ul>
+                <p> You can also have a look at the Python-based reference
+                  implementations to <a href="https://bitbucket.org/adstomper/adblockedge/src/89b42f4866c9134480f553ed7ced62795fb0d9e7/validateChecksum.py?at=default">validate
+                    a checksum</a> and to <a href="https://bitbucket.org/adstomper/adblockedge/src/89b42f4866c9134480f553ed7ced62795fb0d9e7/addChecksum.py?at=default">add
+                    a checksum to a file</a>. </p>
+              </li>
+              <li>
+                <p> <code>! Redirect: http://example.com/list.txt</code> </p>
+                <p> This comment indicates that the filter list has moved to a
+                  new download address. Adblock Edge will ignore any file
+                  contents beyond that comment and immediately try downloading
+                  from the new address. In case of success the address of the
+                  filter list will be updated in the settings. This comment is
+                  ignored if the new address is the same as the current address,
+                  meaning that it can be used to enforce the "canonical" address
+                  of the filter list. </p>
+              </li>
+              <li>
+                <p> <code>! Version: 1234</code> </p>
+                <p> This comment defines a numerical version of the filter list.
+                  This version number will be displayed in issue reports and can
+                  be used to verify that the report refers to the current
+                  version of the filter list. </p>
+              </li>
+            </ul>
+            <h3 id="advanced">Advanced features</h3>
+            <p>The features described in this section are usually used only by
+              power users and filterlist creators. Feel free to skip it.</p>
+            <h4 id="options">Specifying filter options</h4>
+            <p>Adblock Edge allows you to specify a number of options to modify
+              the behavior of a filter. You list these options separated with
+              commas after a dollar sign ($) at the end of the filter, for
+              example:</p>
+            <pre>*/ads/*$script,match-case
+</pre>
+            <p>Here <code>*/ads/*</code> is the actual filter and <code>script</code>
+              and <code>match-case</code> are its options. Currently the
+              following options are supported:</p>
+            <ul>
+              <li>Type options: determine which types of elements a filter can
+                block (or whitelist in case of an exception rule). Multiple type
+                options can be specified to indicate that the filter should be
+                applied to several types of elements. Possible types are:
+                <ul>
+                  <li><code>script</code> &#8212; external scripts loaded via HTML
+                    script tag</li>
+                  <li><code>image</code> &#8212; regular images, typically loaded via
+                    HTML img tag</li>
+                  <li><code>stylesheet</code> &#8212; external CSS stylesheet files</li>
+                  <li><code>object</code> &#8212; content handled by browser plugins,
+                    e.g. Flash or Java</li>
+                  <li><code>xmlhttprequest</code> &#8212; requests started by the <a
+                      href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest
+                      object</a></li>
+                  <li><code>object-subrequest</code> &#8212; requests started plugins
+                    like Flash</li>
+                  <li><code>subdocument</code> &#8212; embedded pages, usually
+                    included via HTML frames</li>
+                  <li><code>document</code> &#8212; the page itself (only <a href="Writing%20Adblock%20Edge%20filters.htm#whitelist">exception
+                      rules</a> can be applied to the page)</li>
+                  <li><code>elemhide</code> &#8212; for exception rules only, similar
+                    to <code>document</code> but only disables <a href="Writing%20Adblock%20Edge%20filters.htm#elemhide">element
+                      hiding rules</a> on the page rather than all filter rules
+                    (Adblock Edge 1.2 and higher required)</li>
+                  <li><code>other</code> &#8212; types of requests not covered in the
+                    list above</li>
+                </ul>
+                The type options <code>background</code>, <code>xbl</code>, <code>ping</code>
+                and <code>dtd</code> are outdated and should no longer be used.
+              </li>
+              <li>Inverse type options: specify the element types the filter
+                should <strong>not</strong> be applied to. Possible inverse
+                type options: <code>~script</code>, <code>~image</code>, <code>~stylesheet</code>,
+                <code>~object</code>, <code>~xmlhttprequest</code>, <code>~object-subrequest</code>,
+                <code>~subdocument</code>, <code>~document</code>, <code>~elemhide</code>,
+                <code>~other</code></li>
+              <li>Restriction to third-party/first-party requests: If the <code>third-party</code>
+                option is specified, the filter is only applied to requests from
+                a different origin than the currently viewed page. Similarly, <code>~third-party</code>
+                restricts the filter to requests from the same origin as the
+                currently viewed page.</li>
+              <li>Domain restrictions: The option <code>domain=example.com</code>
+                means that the filter should only be applied on pages from
+                "example.com" domain. Multiple domains can be specified using
+                "|" as separator: with the option <code>domain=example.com|example.net</code>
+                the filter will only be applied on pages from "example.com" or
+                "example.net" domains. If a domain name is preceded with "~",
+                the filter should <strong>not</strong> be applied on pages from
+                this domain. For example, <code>domain=~example.com</code>
+                means that the filter should be applied on pages from any domain
+                but "example.com" and <code>domain=example.com|~foo.example.com</code>
+                restricts the filter to the "example.com" domain with the
+                exception of "foo.example.com" subdomain.</li>
+              <li><code>match-case</code> &#8212; makes the filter only apply to
+                addresses with matching letter case, e.g. the filter <code>*/BannerAd.gif$match-case</code>
+                will block <code>http://example.com/BannerAd.gif</code> but not
+                <code>http://example.com/bannerad.gif</code>.</li>
+              <li><code>collapse</code> &#8212; this option will override the global
+                "Hide placeholders of blocked elements" option and make sure the
+                filter always hides the element. Similarly the <code>~collapse</code>
+                option will make sure the filter never hides the element.</li>
+              <li> <code>donottrack</code> &#8212; for any address matching a
+                blocking rule with this option and not matching any exception
+                rules with this option a <a href="http://donottrack.us/">Do-Not-Track
+                  header</a> will be sent (requires Adblock Edge 1.3.5 or
+                higher). For backwards compatibility it is recommended to use
+                this option in combination with contradicting type options, this
+                will prevent this filter from blocking anything in earlier
+                Adblock Edge versions: <code>*$donottrack,image,~image</code> </li>
+            </ul>
+            <h4 id="regexps">Using regular expressions</h4>
+            <p>If you want even more control about what your filters match and
+              what they don't match, you can use regular expressions. For
+              example the filter <code>/banner\d+/</code> will match <code>banner123</code>
+              and <code>banner321</code> but not <code>banners</code>. You can
+              check out <a href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Regular_Expressions#Writing_a_Regular_Expression_Pattern">documentation
+                on regular expressions</a> to learn how to write them.</p>
+            <p><em>Note</em>: For performance reasons it is recommended not to
+              use regular expressions if they can be avoided.</p>
+            <h2 id="elemhide">Element hiding</h2>
+            <h3 id="elemhide_basic">Basic rules</h3>
+            <p>Sometimes you will find advertisements that can't be blocked
+              because they are embedded as text in the web page itself. If you
+              look at the source code of the web page you might find something
+              like this:</p>
+            <pre>&lt;div class="textad"&gt;
+Cheapest tofu, only here and now!
+&lt;/div&gt;
+&lt;div id="sponsorad"&gt;
+Really cheap tofu, click here!
+&lt;/div&gt;
+&lt;textad&gt;
+Only here you get the best tofu!
+&lt;/textad&gt;
+</pre>
+            <p>You need to download the web page so you will necessarily
+              download the advertisements. All you can do here is to hide the
+              advertisement so you don't need to see it. That's what element
+              hiding is meant for.</p>
+            <p>The first advertisement above is contained inside a div element
+              with class attribute "textad". The following rule will hide
+              exactly this combination: <code>##div.textad</code>. Here ##
+              marks an element hiding rule while the rest is a selector
+              identifying the elements that need to be hidden. You can hide
+              elements by their id attribute similarly, <code>##div#sponsorad</code>
+              will hide the second advertisement. You don't need to specify the
+              element name, the rule <code>##*#sponsorad</code> will work just
+              as well. And you can hide elements by element name only, e.g. <code>##textad</code>
+              for the third advertisement.</p>
+            <p>The <a hreflang="en" href="https://adblockplus.org/en/elemhidehelper">Element
+                Hiding Helper extension</a> helps selecting the correct element
+              and writing the corresponding rule without having to view the
+              source code of the page. Basic HTML knowledge is useful
+              nevertheless.</p>
+            <p><em>Note</em>: Element hiding works very differently from normal
+              filters. This has the implication that no wildcards are supported
+              in element hiding rules.</p>
+            <h3 id="elemhide_domains">Limiting rules to certain domains</h3>
+            <p>Usually you want to hide a specific ad on one specific site, you
+              don't want your rule to be applied on other sites. For example the
+              rule <code>##*.sponsor</code> might hide valid code on some
+              sites. But if you write it as <code>example.com##*.sponsor</code>
+              it will be applied on <code>http://example.com/</code> and <code>http://something.example.com/</code>
+              but not on <code>http://example.org/</code>. You can also specify
+              multiple domains &#8212; simply separate them with commas: <code>domain1.example,domain2.example,domain3.example##*.sponsor</code>.</p>
+            <p>If a domain name is preceded with "~", the rule will <strong>not</strong>
+              be applied on pages from this domain (requires Adblock Edge 1.1 or
+              higher). For example, <code>~example.com##*.sponsor</code> will
+              be be applied on pages from any domain but "example.com" and <code>example.com,~foo.example.com##*.sponsor</code>
+              makes the rule apply on "example.com" domain with the exception of
+              "foo.example.com" subdomain.</p>
+            <p><em>Note</em>: Due to the way how element hiding is implemented,
+              you really can only limit it to full domain names. You cannot use
+              any other part of the address and you cannot use <code>domain</code>
+              as a replacement for <code>domain.example,domain.test</code>.</p>
+            <p><em>Note</em>: Element hiding rules with domain limitation can be
+              used to hide browser's user interface elements as well. For
+              example the filter rule <code>browser##menuitem#javascriptConsole</code>
+              will hide the JavaScript Console entry in Firefox's Tools menu.</p>
+            <h3 id="elemhide_attributes">Attribute selectors</h3>
+            <p>Some advertisers don't make it easy for you &#8212; their text
+              advertisements have neither an id nor a class attribute. You can
+              use other attributes to hide those, for example <code>##table[width="80%"]</code>
+              will hide tables with width attribute set to 80%. If you don't
+              want to specify the full value of the attribute, <code>##div[title*="adv"]</code>
+              will hide all div elements with title attribute containing the
+              string "adv". You can also check the beginning and the end of an
+              attribute, for example <code>##div[title^="adv"][title$="ert"]</code>
+              will hide div elements with title starting with "adv" and ending
+              with "ert". As you see, you can also use multiple conditions &#8212; <code>table[width="80%"][bgcolor="white"]</code>
+              will match tables with width attribute set to 80% and bgcolor
+              attribute set to white.</p>
+            <h3 id="elemhide_css">Advanced selectors</h3>
+            <p>In general, any CSS selector supported by Firefox can be used for
+              element hiding. For example the following rule will hide anything
+              following a div element with class "adheader": <code>##div.adheader
+                + *</code>. For a full list of CSS list see <a href="http://www.w3.org/TR/css3-selectors/">W3C
+                CSS specification</a> (note that not all selectors are supported
+              by Firefox yet).</p>
+            <p><em>Note</em>: This functionality is for advanced users only, you
+              should be comfortable with CSS selectors to use it. Adblock Edge
+              won't be able to check the syntax of the selector you are adding,
+              if you use invalid CSS syntax you might break other (valid) rules
+              you have. Check JavaScript Console for CSS errors.</p>
+            <h3 id="elemhide_exceptions">Exception rules</h3>
+            <p> Exception rules can disable existing rules on particular
+              domains. These are mostly useful to filter subscription authors
+              who are extending another filter subscription that they cannot
+              change. For example, the rule <code>##div.textad</code> can be
+              disabled on <code>example.com</code> using the exception rule <code>example.com#@#div.textad</code>.
+              The combination of these two rules has exactly the same effect as
+              the single rule <code>~example.com##div.textad</code>. It is
+              recommended that you use exception rules only when you cannot
+              change an overly general element hiding rule, in all the other
+              cases limiting this rule to the necessary domains is preferable. </p>
+            <h3 id="elemhide_simplified">Simplified element hiding syntax</h3>
+            <p>Adblock Edge supports simplified element hiding syntax (e.g. <code>#div(id=foo)</code>)
+              for backwards compatibility only. Using this syntax is
+              discouraged, usual CSS selectors are preferred. Support for this
+              syntax might be removed at some point.</p>
+          </div>
+        </div>
+        <br />
+      </div>
+      <!-- end div#Content -->
+      <div style="clear: both;"> </div>
+    </div>
+    <!-- end div#Page -->
+    <div id="Footer">
+      <p>© 2014 Adstomper </p>
+    </div>
+    <!-- end div#Footer -->
+  </body>
+</html>

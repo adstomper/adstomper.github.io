@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>Adblock Edge</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+  </head>
+  <body style="                      height: 3000px;">
+    <div id="Header">
+      <h1 style="text-align: center;"><span style="color: #000099;"><a href="index.html"
+            id="Title_Font">Adblock Edge</a></span></h1>
+      <p style="text-align: center; margin-top: -28px;"><span style="font-weight: bold;">ABE
+          Blocks Everything</span></p>
+      <div class="Navigation">
+        <ul style="margin-left: -172px; width: 1110px;" id="Fonts">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Faqs.html">FAQ's</a></li>
+          <li><a href="Differences.html">ABE vs ABP</a></li>
+          <li><a href="Documentation.html">Documentation</a></li>
+          <li><a href="Known_subs.html">Subscriptions</a></li>
+          <li><a href="Contacting.html">Contact Info</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end div#Header -->
+    <div id="Page">
+      <div id="Content" style="margin-left: -172px; width: 1110px; text-align: left;">
+        <li style="text-align: left; height: 30px; width: 790px; margin-left: 144px;"><a
+            href="ABE_Preferences.html">Preferences</a>
+          <p>The following table lists and explains all preferences that are
+            used by Adblock edge. These preferences can be viewed and changed
+            via <a href="http://kb.mozillazine.org/About:config">about:config</a>.</p>
+          <table border="3" style="background-color: white; border-color: black;">
+            <tbody style="background-color: white;">
+              <tr style="background-color: white; border-color: black">
+                <th width="30%" style="background-color: white; border-color: black">Preference</th>
+                <th width="20%" style="background-color: white;">Default value</th>
+                <th width="50%" style="background-color: white;">Comments</th>
+              </tr>
+              <tr id="visible_options" style="background-color: white;">
+                <td colspan="3" class="section">Visible options</td>
+              </tr>
+              <tr id="enabled" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">enabled</span></td>
+                <td><tt>true</tt></td>
+                <td>Value of the "Enable Adblock edge" option</td>
+              </tr>
+              <tr id="fastcollapse" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">fastcollapse</span></td>
+                <td><tt>false</tt></td>
+                <td>Reverse of the "Hide placeholders of blocked elements"
+                  option</td>
+              </tr>
+              <tr id="frameobjects" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">frameobjects</span></td>
+                <td><tt>true</tt></td>
+                <td>Value of the "Show tabs on Flash and Java" option</td>
+              </tr>
+              <tr id="savestats" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">savestats</span></td>
+                <td><tt>true</tt></td>
+                <td>Value of the "Count filter hits" option</td>
+              </tr>
+              <tr id="showinstatusbar" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">showinstatusbar</span></td>
+                <td><tt>false</tt></td>
+                <td>Value of the "Show in status bar" option</td>
+              </tr>
+              <tr id="hidden_options" style="background-color: white;">
+                <td colspan="3" class="section">Hidden options</td>
+              </tr>
+              <tr id="clearStatsOnHistoryPurge" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">clearStatsOnHistoryPurge</span></td>
+                <td><tt>true</tt></td>
+                <td>If <code>true</code>, clearing browsing history will also
+                  clear hit statistics for Adblock edge filters. Note that the
+                  hit statistics often allow deducing which sites the user
+                  visited, when and how often.</td>
+              </tr>
+              <tr id="composer_default" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">composer_default</span></td>
+                <td><tt>2</tt></td>
+                <td>Determines which suggestion should be selected in the filter
+                  composer by default:<br />
+                  <br />
+                  0 &#8212; custom pattern<br />
+                  1 &#8212; exact address only<br />
+                  2 &#8212; entire directory<br />
+                  3 &#8212; entire site</td>
+              </tr>
+              <tr id="data_directory" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">data_directory</span></td>
+                <td><tt>adblockedge</tt></td>
+                <td>The directory where Adblock edge should store its data. This
+                  can be either an absolute path, or it can a directory location
+                  relative to the user's profile. If <a href="ABE_preferences.html#patternsfile">patternsfile</a>
+                  preference is set it will override the location for
+                  patterns.ini file while other files stay in this directory.</td>
+              </tr>
+              <tr id="defaultstatusbaraction" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">defaultstatusbaraction</span></td>
+                <td><tt>0</tt></td>
+                <td>Defines the action that should be executed when the status
+                  bar icon is clicked. For list of possible values see <a href="ABE_preferences.html#defaulttoolbaraction">defaulttoolbaraction</a>.</td>
+              </tr>
+              <tr id="defaulttoolbaraction" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">defaulttoolbaraction</span></td>
+                <td><tt>0</tt></td>
+                <td>Defines the action that should be executed when the toolbar
+                  icon is clicked. Possible values are:<br />
+                  <br />
+                  0 &#8212; show menu<br />
+                  1 &#8212; open/close blockable items<br />
+                  2 &#8212; show Preferences dialog<br />
+                  3 &#8212; enable/disable Adblock edge<br />
+                  anything else &#8212; do nothing</td>
+              </tr>
+              <tr id="enable_key" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">enable_key</span></td>
+                <td><em>empty</em></td>
+                <td>Defines the keyboard shortcut to be used to enable/disable
+                  Adblock edge. For description of possible values see <a href="ABE_preferences.html#sidebar_key">sidebar_key</a>.<br />
+                  <br />
+                  <em>Note</em>: This setting will only apply after the browser
+                  is restarted.</td>
+              </tr>
+              <tr id="filters_key" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">filters_key</span></td>
+                <td><tt>Accel Shift E, Accel Shift F, Accel Shift O</tt></td>
+                <td>Defines the keyboard shortcut to be used to open Filter
+                  Preferences dialog. For description of possible values see <a
+                    href="ABE_preferences.html#sidebar_key">sidebar_key</a>.<br />
+                  <br />
+                  <em>Note</em>: This setting will only apply after the browser
+                  is restarted.</td>
+              </tr>
+              <tr id="flash_scrolltoitem" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">flash_scrolltoitem</span></td>
+                <td><tt>true</tt></td>
+                <td>Defines whether "Flash item's borders" in the list of
+                  blockable items should try to scroll the item into view.</td>
+              </tr>
+              <tr id="patternsbackupinterval" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">patternsbackupinterval</span></td>
+                <td><tt>24</tt></td>
+                <td>Minimal interval between two backups of patterns.ini (in
+                  hours)</td>
+              </tr>
+              <tr id="patternsbackups" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">patternsbackups</span></td>
+                <td><tt>5</tt></td>
+                <td>Number of backups for patterns.ini that should be kept. If
+                  this is 0, backups will be disabled.</td>
+              </tr>
+              <tr id="patternsfile" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">patternsfile</span></td>
+                <td><em>empty</em></td>
+                <td>Name of the file that should be used to store the list of
+                  filters. This can be either an absolute path, or it can be
+                  file's location relative to the user's profile.</td>
+              </tr>
+              <tr id="previewimages" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">previewimages</span></td>
+                <td><tt>true</tt></td>
+                <td>Defines whether the tooltip in the list of blockable items
+                  should show the image that the item represents.</td>
+              </tr>
+              <tr id="sidebar_key" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">sidebar_key</span></td>
+                <td><tt>Accel Shift V, Accel Shift U</tt></td>
+                <td>Defines the keyboard shortcut to be used to open blockable
+                  items. This preference can be empty or it can be of the form <em>modifier1
+                    modifier2 key</em>. Recognized modifiers are: Shift, Accel
+                  (default accelerator key, e.g. Ctrl on Windows, Command on Mac
+                  OS X), Ctrl/Control, Alt, Meta. Key can be either a letter or
+                  a special key like F7 or RIGHT (see <a href="http://mxr.mozilla.org/mozilla/source/dom/public/idl/events/nsIDOMKeyEvent.idl">nsIDOMKeyEvent
+                    interface</a> for a list of special keys). <br />
+                  <br />
+                  <em>Note</em>: This setting will only apply after the browser
+                  is restarted.</td>
+              </tr>
+              <tr id="subscriptions_autoupdate" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">subscriptions_autoupdate</span></td>
+                <td><tt>true</tt></td>
+                <td>Defines whether filters in filter subscriptions will be
+                  updated automatically.<br />
+                  <br />
+                  <em>Note</em>: Disabling updates is not recommended.</td>
+              </tr>
+              <tr id="synchronizationinterval" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">synchronizationinterval</span></td>
+                <td><tt>24</tt></td>
+                <td>Minimal interval between two subsequent downloads of a
+                  subscription (in hours)</td>
+              </tr>
+              <tr id="remembered_actions" style="background-color: white;">
+                <td colspan="3" class="section">Remembered actions</td>
+              </tr>
+              <tr id="blockableItemsSize" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">blockableItemsSize</span></td>
+                <td><tt>{width: 200, height: 200}</tt></td>
+                <td>Remembered size of the Blockable Items list (width setting
+                  is only relevant when displayed as a sidebar).</td>
+              </tr>
+              <tr id="currentVersion" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">currentVersion</span></td>
+                <td><tt>0.0</tt></td>
+                <td>Stores the last used Adblock edge version, this will trigger
+                  actions that need to be done on upgrade or first install</td>
+              </tr>
+              <tr id="detachsidebar" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">detachsidebar</span></td>
+                <td><tt>false</tt></td>
+                <td>Stores state of the list of blockable items &#8212; <tt>true</tt>
+                  means detached</td>
+              </tr>
+              <tr id="hideContributeButton" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">hideContributeButton</span></td>
+                <td><tt>false</tt></td>
+                <td>This is set to <code>true</code> if the user chose to hide
+                  the Contribute button.</td>
+              </tr>
+              <tr id="internal_preferences" style="background-color: white;">
+                <td colspan="3" class="section">Internal preferences (don't
+                  change unless you really know what you are doing)</td>
+              </tr>
+              <tr id="documentation_link" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">documentation_link</span></td>
+                <td><br />
+                </td>
+                <td>Address on adblockedge.org to be opened for documentation
+                  links. It will redirect to the actual documentation location
+                  depending on the language used.</td>
+              </tr>
+              <tr id="subscriptions_listurl" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">subscriptions_listurl</span></td>
+                <td><br />
+                </td>
+                <td>Address to download the complete list of filter
+                  subscriptions from.</td>
+              </tr>
+              <tr id="whitelistschemes" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">whitelistschemes</span></td>
+                <td><tt>about chrome file irc keyword moz-safe-about news
+                    resource snews x-jsd addbook cid imap mailbox nntp pop data
+                    javascript</tt></td>
+                <td>List of URL schemes that shouldn't be blocked (applied to
+                  both whole documents and to item locations)</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td>extensions.adblockedge.disable_startup_delay</td>
+                <td>true</td>
+                <td>Enforce ABE being loaded completely at Firefox startup, even
+                  if delaying it</td>
+              </tr>
+              <tr id="removed_preferences" style="background-color: white;">
+                <td colspan="3" class="section"><span style="font-weight: bold;">Removed
+                    preferences</span></td>
+              </tr>
+              <tr id="blocklocalpages" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">blocklocalpages</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="blocktypes" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">blocktypes</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="checkedadblockinstalled" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">checkedadblockinstalled</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="checkedadblockprefs" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">checkedadblockprefs</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="checkedadblocksync" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">checkedadblocksync</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="checktoolbar" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">checktoolbar</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="grouporder" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">grouporder</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="linkcheck" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">linkcheck</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge</td>
+              </tr>
+              <tr id="linktypes" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">linktypes</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edger</td>
+              </tr>
+              <tr id="localschemes" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">localschemes</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge</td>
+              </tr>
+              <tr id="noncollapsabletypes" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">noncollapsabletypes</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="patterns" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">patterns</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="protectchrome.*" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">protectchrome.*</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="settings_key" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">settings_key</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="showintoolbar" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">showintoolbar</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="showsubscriptions" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">showsubscriptions</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="synchronizationinterval" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">synchronizationinterval</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge </td>
+              </tr>
+              <tr id="warnregexp" style="background-color: white;">
+                <td><span>extensions.</span><span>adblockedge.</span><span class="prefname">warnregexp</span></td>
+                <td><br />
+                </td>
+                <td>Unused in Adblock edge</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td><span>extensions.</span><span>adblockEdge.</span><span class="prefname">subscriptions_fallbackerrors</span></td>
+                <td><br />
+                </td>
+                <td>Removed in Adblock edge 2.1.5</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td><span>extensions.</span><span>adblockEdge.</span><span class="prefname">subscriptions_fallbackurl</span></td>
+                <td><br />
+                </td>
+                <td>Removed in Adblock edge 2.1.5</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li style="text-align: center; height: 30px;"> <br />
+        </li>
+        <li style="text-align: center; height: 30px;"><br />
+        </li>
+        <li style="text-align: center; height: 30px;"><br />
+        </li>
+        <li style="text-align: center;"><br />
+        </li>
+        <br />
+      </div>
+      <!-- end div#Content -->
+      <div style="clear: both; margin-top: 3000px;"> </div>
+    </div>
+    <!-- end div#Page -->
+    <div style="margin-top: 500px; height: 10px;" id="Footer">
+      <p style="margin-top: 25px;">© 2014 Adstomper </p>
+    </div>
+    <!-- end div#Footer -->
+  </body>
+</html>

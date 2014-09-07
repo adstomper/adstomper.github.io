@@ -1,0 +1,222 @@
+body {  
+  margin-top: 0px;  
+  margin-right: 50px;  
+  margin-bottom: 0px;  
+  margin-left: 50px;  
+  padding-top: 0px;  
+  padding-right: 0px;  
+  padding-bottom: 0px;  
+  padding-left: 0px;  
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;  
+  color: #676767;  
+  background-color: white;  
+  font-size: 14px;
+}
+
+table {  
+  width: 100%;  
+  height: 50px;  
+  padding-top: 0px;  
+  padding-right: 0px;  
+  padding-bottom: 0px;  
+  padding-left: 0px;  
+  margin-top: 0px;  
+  margin-right: 0px;  
+  margin-bottom: 0px;  
+  margin-left: 0px;  
+  background-color: white;
+}
+
+#Header {  
+  width: 790px;  
+  margin-right: auto;  
+  margin-left: auto;  
+  height: auto;
+}
+
+#Header h1, a {  
+  font-size: 36px;  
+  text-decoration: none;  
+  text-indent: 10px;  
+  color: #000099;
+}
+
+#Header .Navigation {  
+  font-weight: normal;  
+  width: 790px;  
+  margin-top: 6px;  
+  padding-top: 6px;  
+  margin-bottom: 4px;  
+  padding-bottom: 4px;
+}
+
+#Header .Navigation ul {  
+  margin-top: 0px;  
+  margin-right: 0px;  
+  margin-bottom: 0px;  
+  margin-left: 0px;  
+  text-align: center;  
+  padding-top: 6px;  
+  padding-right: 0px;  
+  padding-bottom: 7px;  
+  padding-left: 0px;
+}
+
+#Header .Navigation ul li {  
+  display: inline;
+}
+
+#Header .Navigation ul li a {  
+  color: #006699;  
+  text-decoration: none;  
+  border-bottom-width: 3px;  
+  border-bottom-style: solid;  
+  border-bottom-color: #bfbfbf;  
+  padding-top: 6px;  
+  padding-right: 5px;  
+  padding-bottom: 4px;  
+  padding-left: 5px;  
+  margin-right: 2px;  
+  margin-left: 2px;  
+  font-size: 220%;
+}
+
+#Header .Navigation ul li a:hover {  
+  border-bottom-width: 3px;  
+  border-bottom-style: solid;  
+  border-bottom-color: gray;
+}
+
+#Page {  
+  width: 770px;  
+  margin-top: 20px;  
+  margin-right: auto;  
+  margin-bottom: 0px;  
+  margin-left: auto;  
+  padding-top: 10px;  
+  padding-right: 10px;  
+  padding-bottom: 10px;  
+  padding-left: 10px;
+}
+
+#Content {  
+  width: auto;  
+  padding-left: 8px;  
+  font-size: 18px;  
+  padding-right: 8px;  
+  font-family: Georgia, "Times New Roman", Times, serif;  
+  font-weight: normal;
+}
+
+#Content a {  
+  text-decoration: none;  
+  display: inline;  
+  font-style: italic;  
+  font-size: 100%;
+}
+
+#Content a:hover {  
+  color: #a3b2cc;
+}
+
+#Content h1 {  
+  font-size: 24px;  
+  color: #1db7ef;  
+  padding-top: 0px;  
+  padding-right: 0px;  
+  padding-bottom: 6px;  
+  padding-left: 10px;  
+  margin-top: 0px;  
+  margin-right: 0px;  
+  margin-bottom: 0px;  
+  margin-left: 0px;
+}
+
+#Content ul, li {  
+  list-style-type: none;  
+  margin-top: 2px;  
+  margin-right: 0px;  
+  margin-bottom: 2px;  
+  margin-left: 4px;  
+  padding-top: 3px;  
+  padding-right: 0px;  
+  padding-bottom: 0px;  
+  padding-left: 3px;
+}
+
+#Content .link {  
+  display: block;  
+  text-align: right;  
+  padding-right: 60px;  
+  height: auto;  
+  margin-top: 6px;  
+  margin-bottom: 6px;  
+  padding-top: 4px;  
+  padding-bottom: 4px;
+}
+
+#Footer {  
+  width: 750px;  
+  margin-top: 0px;  
+  margin-right: auto;  
+  margin-bottom: 0px;  
+  margin-left: auto;  
+  padding-top: 20px;  
+  padding-right: 0px;  
+  padding-bottom: 20px;  
+  padding-left: 0px;  
+  border-top-width: 4px;  
+  border-top-style: solid;  
+  border-top-color: #fafafa;
+}
+
+#Footer:hover {  
+  width: 750px;  
+  margin-top: 0px;  
+  margin-right: auto;  
+  margin-bottom: 0px;  
+  margin-left: auto;  
+  padding-top: 20px;  
+  padding-right: 0px;  
+  padding-bottom: 20px;  
+  padding-left: 0px;  
+  border-top-width: 4px;  
+  border-top-style: solid;  
+  border-top-color: #f6f6f6;
+}
+
+#Footer p {  
+  margin-top: 0px;  
+  margin-right: 0px;  
+  margin-bottom: 0px;  
+  margin-left: 0px;  
+  text-align: center;  
+  color: #336666;
+}
+
+#Footer a {  
+  color: #cc3366;  
+  text-decoration: none;  
+  font-size: 100%;
+}
+
+#Fonts {  
+  font-size: 9px;
+}
+
+#Title_Font {  
+  color: #000099 !important;
+}
+
+#Table {  
+  background-color: white;  
+  border-top-width: 0px;  
+  border-right-width: 0px;  
+  border-bottom-width: 0px;  
+  border-left-width: 0px;  
+  border-top-style: solid;  
+  border-right-style: solid;  
+  border-bottom-style: solid;  
+  border-left-style: solid;
+}
+

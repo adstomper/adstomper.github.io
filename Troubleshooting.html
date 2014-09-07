@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>Adblock Edge</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="Header">
+      <h1 style="text-align: center;"><span style="color: #000099;"><a id="Title_Font"
+            href="index.html">Adblock Edge</a></span></h1>
+      <p style="text-align: center; margin-top: -28px;"><span style="font-weight: bold;">ABE
+          Blocks Everything</span></p>
+      <div class="Navigation">
+        <ul id="Fonts" style="margin-left: -172px; width: 1110px;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Faqs.html">FAQ's</a></li>
+          <li><a href="Differences.html">ABE vs ABP</a></li>
+          <li><a href="Documentation.html">Documentation</a></li>
+          <li><a href="Known_subs.html">Subscriptions</a></li>
+          <li><a href="Contacting.html">Contact Info</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end div#Header -->
+    <div id="Page">
+      <div style="margin-left: -24px; width: 772px; text-align: left;" id="Content"><a
+          href="Troubleshooting.html">Troubleshooting</a> <br />
+        <div class="toc">
+          <ul>
+            <li>I (accidentally) blocked something. How can I unblock it again?</li>
+            <li>I have Adblock Edge but I am still getting ads! Why?</li>
+          </ul>
+        </div>
+        <h2 id="unblock">I (accidentally) blocked something. How can I unblock
+          it again?</h2>
+        <h3>In Firefox:</h3>
+        <ol>
+          <li> Select Firefox &gt;&gt; Add-ons (for Mac OS X / Linux, select
+            "Tools" from the menubar &gt;&gt; "Add-Ons"), this will open your
+            Firefox Add-ons Manager. </li>
+          <li> Click on "Extensions", find Adblock Edge there, go to "Options"
+            and then click on "Filter preferences...". </li>
+          <li> At the top you will see the "Custom filters" tab where you find
+            your own filters in filter groups. </li>
+          <li> Right-click a group and choose "Show/hide filters" and this will
+            show you the custom filters. </li>
+          <li> Remove the respective filters from the right window. This should
+            unblock the desired element again. </li>
+        </ol>
+        <br />
+        <h2 id="false-negatives">I have Adblock Edge but I am still getting ads!
+          Why?</h2>
+        <h3>Make sure Adblock Edge is enabled.</h3>
+        <h4>In Firefox:</h4>
+        <p> Select Firefox &gt;&gt; Add-ons (for Mac OS X / Linux, select
+          "Tools" from the menubar &gt;&gt; "Add-Ons"), this will open your
+          Firefox Add-ons Manager. Click on "Extensions", find Adblock Edge
+          there, go to "Options" and then ensure "Disable everywhere" is
+          unchecked. </p>
+        <h4>In Chrome:</h4>
+        <p> Click the Chrome menu button, then go to "Tools" and choose
+          "Extensions". Find Adblock Edge there and ensure "Enabled" is ticked
+          on the right. </p>
+        <h4>In Opera:</h4>
+        <p> Click the "Menu" button (for Mac OS X / Linux, "Tools"), select
+          "Extensions" &gt;&gt; "Manage Extensions". Find Adblock Edge there and
+          ensure it is not greyed-out and enabled. </p>
+        <h3>Make sure you are subscribed to a filter subscription.</h3>
+        <h4>In Firefox:</h4>
+        <ol>
+          <li> In Firefox select Firefox &gt;&gt; Add-ons (for Mac OS X / Linux,
+            select "Tools" from the menubar &gt;&gt; "Add-Ons"), this will open
+            your Firefox Add-ons Manager. </li>
+          <li> Click on "Extensions", find Adblock Edge there, go to "Options"
+            and click on "Filter preferences...". </li>
+          <li> Ensure there is a filter subscription ("EasyList" or "Fanboy's
+            Adblock List") that is enabled (ticked): </li>
+        </ol>
+        <img style="width: 706px; height: 335px;" src="Trouble_files/faq_notblocking_checkfilterlists_ff.png" />
+        <h3>Make sure Adblock Edge does not whitelist the website.</h3>
+        <h4>In Firefox:</h4>
+        <ol>
+          <li> Select Firefox &gt;&gt; Add-ons (for Mac OS X / Linux, select
+            "Tools" from the menubar &gt;&gt; "Add-Ons"), this will open your
+            Firefox Add-ons Manager. </li>
+          <li> Click on "Extensions", find Adblock Edge there, go to "Options"
+            and click on "Filter preferences...". </li>
+          <li> Go to the "Custom filters" tab on the top, right-click "Exception
+            Rules" (if it is there) and choose "Show/hide filters". </li>
+          <li> Ensure the right window does not contain any sites you do not
+            want to see ads on: </li>
+        </ol>
+        <img src="Trouble_files/faq_notblocking_notwhitelisted_ff.png" style="width: 711px; height: 342px;" />
+        <h3>I did all previous steps but I am still getting ads!</h3>
+        <p> It could be that a malicious extension in your browser injects ads
+          into webpages. Please <a href="https://easylist.adblockplus.org/blog/2013/03/09/ads-caused-by-malware-or-adware-extensions-or-plugins">read
+            this guide</a> how to detect such extensions and get rid of them. </p>
+        <p> Sometimes <a href="https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems">resetting
+            Firefox</a>  works wonders. </p>
+        <br />
+      </div>
+      <!-- end div#Content -->
+      <div style="clear: both;"> </div>
+    </div>
+    <!-- end div#Page -->
+    <div id="Footer">
+      <p>© 2014 Adstomper </p>
+    </div>
+    <!-- end div#Footer -->
+  </body>
+</html>

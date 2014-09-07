@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>Adblock Edge</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="Header">
+      <h1 style="text-align: center;"><span style="color: #000099;"><a id="Title_Font"
+            href="index.html">Adblock Edge</a></span></h1>
+      <p style="text-align: center; margin-top: -28px;"><span style="font-weight: bold;">ABE
+          Blocks Everything</span></p>
+      <div class="Navigation">
+        <ul id="Fonts" style="margin-left: -172px; width: 1110px;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Faqs.html">FAQ's</a></li>
+          <li><a href="Differences.html">ABE vs ABP</a></li>
+          <li><a href="Documentation.html">Documentation</a></li>
+          <li><a href="Known_subs.html">Subscriptions</a></li>
+          <li><a href="Contacting.html">Contact Info</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- end div#Header -->
+    <div id="Page">
+      <div style="margin-left: -38px; width: 831px; text-align: left;" id="Content"><a
+          href="GUI_Custom.html">GUI Customization</a>
+        <div id="content" class="firefox ua-firefox">
+          <div class="viewcontent cc-page" dir="ltr">
+            <div class="toc">
+              <ul>
+                <li><a href="GUI_Custom.html#toolbar_add">How can I put the
+                    Adblock Edge icon on my toolbar?</a></li>
+                <li><a href="GUI_Custom.html#toolbar_remove">How can I remove
+                    the Adblock Edge icon from my toolbar?</a></li>
+                <li><a href="GUI_Custom.html#icon_green">How do I make the icon
+                    for whitelisted websites green?</a></li>
+                <li><a href="GUI_Custom.html#blockable_position">How do I make
+                    the list of blockable items display at the side/at the top?</a></li>
+                <li><a href="GUI_Custom.html#statusbar_text">How do I get text
+                    displayed in the status bar instead of an icon?</a></li>
+                <li><a href="GUI_Custom.html#statusdrag">How can I move the
+                    Adblock Edge icon in the status bar to a different location?</a></li>
+                <li><a href="GUI_Custom.html#menu_remove">How do I remove
+                    Adblock Edge from all browser menus?</a></li>
+                <li><a href="GUI_Custom.html#icon_change">How do I change the
+                    icons displayed by Adblock Edge?</a></li>
+                <li><a href="GUI_Custom.html#shortcuts">How do I change the
+                    keyboard shortcut for ... / add a keyboard shortcut for
+                    disabling Adblock Edge?</a></li>
+              </ul>
+            </div>
+            <h2 id="toolbar_add">How can I put the Adblock Edge icon on my
+              toolbar?</h2>
+            <p>Usually this icon is added automatically the first time you
+              install Adblock Edge, but maybe it was removed somehow afterwards.
+              In Firefox you can customize the toolbar, simply right-click on
+              the toolbar and choose "Customize". A window with icons will open,
+              Adblock Edge icon should be one of them. Drag it with the mouse
+              into the toolbar and place it where you want it to be. You can
+              also reorder the toolbar icons by dragging them while the
+              customization window is open.</p>
+            <h2 id="toolbar_remove">How can I remove the Adblock Edge icon from
+              my toolbar?</h2>
+            <p>You don't like the icon or need the space for more important
+              things? Click the arrow at the icon, then choose "Options" and
+              "Show in tool bar" from the menu. There is also an Options menu in
+              the Preferences dialog &#8212; just in case you decide to restore the
+              icon. And by the way, you can also use the toolbar customization
+              that is built into Firefox.</p>
+            <br />
+            <br />
+            <h2 id="icon_change">How do I change the icons displayed by Adblock
+              Edge?</h2>
+            <p>You can make your own style using this template:</p>
+            <pre>@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+@-moz-document url("chrome://browser/content/browser.xul"),
+      url("chrome://navigator/content/navigator.xul"),
+      url("chrome://messenger/content/messenger.xul"),
+      url("chrome://messenger/content/messageWindow.xul"),
+      url("chrome://midbrowser/content/midbrowser.xul"),
+      url("chrome://emusic/content/startup.xul"),
+      url("chrome://webrunner/content/webrunner.xul"),
+      url("chrome://global/content/customizeToolbar.xul") {
+
+  toolbar[iconsize="small"] #abp-toolbarbutton,
+  #PersonalToolbar #abp-toolbarbutton,
+  #abp-status {
+    list-style-image: url("file:///c:/icons/abe-16x16.png") !important;
+  }
+
+  #abp-toolbarbutton {
+    list-style-image: url("file:///c:/icons/abe-24x24.png") !important;
+  }
+}
+</pre>
+            <p>Here the images (one with three 16×16 icons and another with
+              three 24×24 icons stacked vertically) are assumed to be located in
+              the directory c:\icons, so you might need to change the addresses.
+              To apply this style you can either use <a href="https://addons.mozilla.org/addon/stylish/">Stylish</a>
+              or edit the file chrome/userChrome.css in your profile directory (<a
+                href="http://kb.mozillazine.org/Profile_folder#Where_is_my_profile_folder.3F">where
+                is my profile directory?</a>) and add this code. If
+              userChrome.css doesn't exist yet you have to create it.</p>
+            <p><em>Note</em>: The changes will take effect after you restart
+              your browser.</p>
+            <h2 id="shortcuts">How do I change the keyboard shortcut for ... /
+              add a keyboard shortcut for disabling Adblock Edge?</h2>
+            <p>There are three hidden preferences that can be accessed via <a href="http://kb.mozillazine.org/About:config">about:config</a>
+              that define the keyboard shortcuts for Adblock Edge: <a href="ABE_preferences.html"
+                hreflang="en">extensions.adblockedge.sidebar_key</a> (open/close
+              blockable elements), <a href="ABE_preferences.html" hreflang="en">extensions.adblockedge.settings_key</a>
+              (open Preferences dialog), <a href="ABE_preferences.html" hreflang="en">extensions.adblockedge.enable_key</a>
+              (enable/disable Adblock Edge). You can change those to your
+              liking.</p>
+            <p><em>Note</em>: The changes will take effect after you restart
+              your browser.</p>
+          </div>
+        </div>
+        <br />
+        <br />
+      </div>
+      <!-- end div#Content -->
+      <div style="clear: both;"> </div>
+    </div>
+    <!-- end div#Page -->
+    <div id="Footer">
+      <p>© 2014 Adstomper </p>
+    </div>
+    <!-- end div#Footer -->
+  </body>
+</html>
